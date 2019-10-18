@@ -1,0 +1,14 @@
+---
+applications:
+- name: approuter
+  routes:
+    - route: approuter-<YOUR_SUBDOMAIN>.cfapps.eu10.hana.ondemand.com
+  path: approuter
+  memory: 128M
+  buildpacks:
+    - nodejs_buildpack
+  env:
+    TENANT_HOST_PATTERN: 'approuter-(.*).cfapps.eu10.hana.ondemand.com'
+    destinations: '[{"name":"sdkapp", "url" :"https://sdkapp-<YOUR_SUBDOMAIN>.cfapps.eu10.hana.ondemand.com", "forwardAuthToken": true}]'
+  services:
+    - my-xsuaa
