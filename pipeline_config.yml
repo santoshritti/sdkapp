@@ -29,6 +29,10 @@ steps:
 
 ### Stage-specific configuration
 stages:
+  integrationTests:
+    credentials:
+      - alias: 'MOCK_SYSTEM'
+        credentialId: 'CredentialsId-Mock'
 #  integrationTests:
 #    credentials:
 #      - alias: 'mySystemAlias'
